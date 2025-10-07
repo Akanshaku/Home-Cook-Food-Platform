@@ -3,17 +3,12 @@ import React from 'react';
 const Reviews = () => {
   const reviewData = [
     {
-      name: 'Aarti Sharma',
+      name: 'Martin Fernadez',
       image: 'https://randomuser.me/api/portraits/women/65.jpg',
       comment: 'Delicious home-cooked meals! Felt like my mom made them.',
     },
     {
-      name: 'Rohan Patel',
-      image: 'https://randomuser.me/api/portraits/men/45.jpg',
-      comment: 'The flavors were authentic and delivery was on time. Loved it!',
-    },
-    {
-      name: 'Sneha Mehta',
+      name: 'Alex France',
       image: 'https://randomuser.me/api/portraits/women/32.jpg',
       comment: 'Great variety and very hygienic preparation. Highly recommended!',
     },

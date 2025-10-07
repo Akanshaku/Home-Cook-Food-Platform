@@ -1,42 +1,53 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    password: '',
-    role: 'user',
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    role: "user",
   });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
+
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/register`, formData);
-      setSuccess('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/login'), 2000);
+      // ✅ Use environment variable for flexible backend URL
+      const API_URL = `${process.env.REACT_APP_API_BASE_URL}/api/auth/register`;
+
+      const res = await axios.post(API_URL, formData, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+
+      console.log("✅ Registration Success:", res.data);
+      setSuccess("Registration successful! Redirecting to login...");
+      setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed');
+      console.error("❌ Registration Error:", err);
+      setError(err.response?.data?.error || "Registration failed. Please try again.");
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
       <h2 className="text-xl font-semibold text-center mb-4">Register</h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -84,7 +95,10 @@ const Register = () => {
           <option value="chef">Chef</option>
         </select>
 
-        <button type="submit" className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600">
+        <button
+          type="submit"
+          className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600 transition"
+        >
           Register
         </button>
       </form>

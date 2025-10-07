@@ -1,9 +1,12 @@
 import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  mealId: { type: mongoose.Schema.Types.ObjectId, ref: 'Meal', required: true },
-  createdAt: { type: Date, default: Date.now }
+  userEmail: String,
+  foodName: String,
+  quantity: Number,
+  status: String,
+  totalPrice: Number,
+  orderDate: String
 });
 
 export default mongoose.model('Order', orderSchema);

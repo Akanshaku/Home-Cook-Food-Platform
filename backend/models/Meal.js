@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
 
 const mealSchema = new mongoose.Schema({
-  title: String,
+  name: String,
   description: String,
   price: Number,
-  image: { type: String, default: '' }, // ← Add this
-  chefId: { type: mongoose.Schema.Types.ObjectId, ref: 'Chef' },
-  createdAt: { type: Date, default: Date.now }
+  chefName: String,
+  cuisine: String,
+  available: Boolean,
+  rating: Number
+
 });
 
 const Meal = mongoose.model('Meal', mealSchema);
