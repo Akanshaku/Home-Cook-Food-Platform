@@ -11,6 +11,12 @@ const Navbar = () => {
 
       <div className="space-x-4">
         <Link to="/" className="navbar-brand fw-bold" style={{ color: '#ea580c' }}>Home</Link>
+      <Link
+          to="/about"
+          className="navbar-brand fw-bold" style={{ color: '#ea580c' }}>About Us</Link>
+      <Link
+          to="/menu"
+          className="navbar-brand fw-bold" style={{ color: '#ea580c' }}>Menu</Link>
 
         {!user && (
           <>

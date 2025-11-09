@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div className="col-12 col-lg-6">
           <img
-            src="https://img.taste.com.au/usDoXvoa/taste/2018/01/healthy-chicken-chow-mein-134805-1.jpg"
+            src="https://c4.wallpaperflare.com/wallpaper/869/719/717/cuisine-food-india-indian-wallpaper-preview.jpg"
             className="d-block mx-auto img-fluid rounded shadow"
             alt="Delicious home-cooked meal"
             style={{ maxHeight: '420px', objectFit: 'cover' }}

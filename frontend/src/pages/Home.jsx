@@ -3,6 +3,7 @@ import axios from 'axios';
 import Carousel from '../components/Carousel';
 import Hero from '../components/Hero';
 import Reviews from '../components/Reviews';
+import Footer from '../components/Footer';
 
 const Home = () => {
   const [meals, setMeals] = useState([]);
@@ -86,6 +87,7 @@ const Home = () => {
         ))
       )}
     </div>
+    <Footer />
   </>
   );
 };
